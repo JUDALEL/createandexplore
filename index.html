@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CREATE AND EXPLORE</title>
+    
+    <link class="icon" type="image/png" href="MULTIMEDIA/icon.gif">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <audio id="localAudio" preload="none"></audio>
+
+    <button id="reopen-btn">[ABRIR ARCHIVO]</button>
+
+    <div class="mac-window" id="macWindow">
+        
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+        
+        <aside class="sidebar" id="sidebar">
+            <div>
+                <h2>ACCESIBILIDAD</h2>
+                <div class="control-group" style="margin-top: 15px;">
+                    <span class="control-label">Visualización</span>
+                    <button class="btn-option" id="themeToggle">Modo Oscuro</button>
+                    <button class="btn-option" id="layoutSizeToggle">Agrandar Ventana</button>
+                    <span class="control-label" style="margin-top: 10px;">Tamaño de Fuente</span>
+                    <button class="btn-option" id="fontSizeToggle">Texto Grande</button>
+                    <span class="control-label" style="margin-top: 10px;">Rendimiento</span>
+                    <button class="btn-option" id="motionToggle">Reducir Animaciones</button>
+                </div>
+            </div>
+
+            <div>
+                <h2>AUDIO / AMBIENT</h2>
+                <div class="control-group" style="margin-top: 15px;">
+                    <span class="control-label">Volumen Master</span>
+                    <input type="range" class="volume-slider" id="volumeSlider" min="0" max="1" step="0.01" value="0.40">
+                    <button class="btn-option" id="muteToggle" style="margin-top: 10px;">Mutear</button>
+                </div>
+            </div>
+        </aside>
+
+        <div id="media-preview-container"></div>
+
+        <div id="media-lightbox">
+            <div class="lightbox-content" id="lightboxContent"></div>
+        </div>
+
+        <a href="https://www.instagram.com/istakoro" target="_blank" class="instagram-fixed-btn">[TAKORO ARCHIVE INSTAGRAM]</a>
+
+        <div class="mac-header">
+            <div class="mac-buttons">
+                <div class="mac-dot close" id="macCloseBtn" title="Cerrar pestaña"></div>
+                <div class="mac-dot minimize" id="macMinimizeBtn" title="Minimizar contenido"></div>
+                <div class="mac-dot maximize" id="macMaximizeBtn" title="Pantalla completa"></div>
+            </div>
+            
+            <div class="mac-title-container">
+                <img src="MULTIMEDIA/icon.gif" alt="Icono" class="mac-app-icon" id="macAppIcon" title="Visualizar icono" loading="lazy">
+                <div class="mac-title">CREATE AND EXPLORE</div>
+            </div>
+        </div>
+
+        <div class="window-content">
+            <main>
+                <header>
+                    <div class="header-left">
+                        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú de accesibilidad">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
+                        <h1>ARCHIVE</h1>
+
+                        <div class="integrated-player">
+                            <div class="player-disc-area">
+                                <div class="mini-vinyl" id="vinylDisc">
+                                    <div class="vinyl-lines"></div>
+                                    <div class="vinyl-center" id="vinylCenter"></div>
+                                </div>
+                            </div>
+                            <div class="player-core">
+                                <div class="player-track-title" id="playerTrackInfo">SISTEMA APAGADO</div>
+                                <div class="player-controls-row">
+                                    <button class="btn-player-ctrl" id="btnPrev" title="Anterior">⏮</button>
+                                    <button class="btn-player-ctrl" id="btnPlayPause" title="Play / Pausa">▶</button>
+                                    <button class="btn-player-ctrl" id="btnNext" title="Aleatorio">⏭</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="header-right">
+                        <button id="btnFullscreen" class="standalone-fullscreen" title="Modo Pantalla Completa">[PANTALLA COMPLETA]</button>
+                        <div id="live-clock">Cargando...</div>
+                    </div>
+                </header>
+
+                <div class="logs-container">
+                    
+                    <div class="log-entry">
+                        <button class="log-date">20 MARZO 2026</button>
+                        <div class="log-content">
+                            <p>Hoy en mi cumpleaños numero 20 lanzo oficialmente mi EP doble <span class="wiki-link" data-type="image" data-src="MULTIMEDIA/2.jpeg"><u><strong>SIMON</strong></u></span>, un proyecto sónico e introspectivo que comencé a maquetar en secreto desde el 2023. <em><a href="https://youtu.be/5BHW7BXSYUM?si=59xAZ34lfmy6BI-V" target="_blank"><u><strong>simon</strong></u></a></em> es un manifesto de arte ambiental que me representa directamente; evoca a mi "yo pequeño", alguien sumamente tímido y de pocas palabras, pero también rinde homenaje directo a Simón, el perro que más quiero en este universo.</p>
+                            <br>
+                            <p>Siempre he creído que los animales son los seres vivos más puros, leales y genuinos que existen; ellos no tienen la capacidad de hablar, y es precisamente por eso que decidí que este álbum fuera enteramente <strong>ambient, orgánico y libre de letras</strong>. La música habla por su silencio. Estructuralmente, <em><a href="https://youtu.be/vNENpxIKzzQ?si=AuNdThpSy6Mg3EG5" target="_blank"><u><strong>simon v2</strong></u></a></em>  es la entrega más cohesiva, sólida y madura del proyecto, diseñada con un inicio cíclico que se conecta de forma milimétrica con el desenlace del último track.</p>
+                            <br>
+                            <p>A nivel de texturas, el sonido muta constantemente a través de complejas capas de <em>Drum and Bass (DnB), Pop deconstruido, Jungle abrasivo, Ambient estático y EDM atmosférico</em>. Todo el espectro rítmico está profundamente influenciado por las complejas frecuencias y legados artísticos de <strong>Aphex Twin, Frank Ocean, Cocteau Twins, Yung Lean y Radiohead</strong>.</p>
+                        </div>
+                    </div>
+
+                    <div class="log-entry">
+                        <button class="log-date">18 MAYO 2026</button>
+                        <div class="log-content">
+                            <p>Este espacio es un archivo vivo concebido por <span class="wiki-link" data-type="image" data-src="MULTIMEDIA/1.jpg"><u><strong>Juan Acosta</strong></u></span>, también conocido en este rincón digital como <em>takoro</em>. Está diseñado para aquellos espíritus curiosos que buscan perderse y encontrar inspiración en las infinitas capas de las diferentes culturas, la música, el arte, la literatura, la naturaleza, el cine y la fotografía.</p>
+                            <br>
+                            <p>Al mismo tiempo, funciona como mi propio manifiesto y escape mental; un lienzo en blanco donde me permito de estructurar el caos de mis pensamientos, capturar ideas efímeras, resguardar poemas inacabados o simplemente redactar mis dudas existenciales. Bienvenido a este rincón de introspección.</p>
+                        </div>
+                    </div>
+
+                    <div class="log-entry">
+                        <button class="log-date">19 MAYO 2026</button>
+                        <div class="log-content">
+                            <p>Frecuentemente nos enfrentamos al abismo del <span class="wiki-link" data-type="image" data-src="https://i1-c.pinimg.com/736x/5f/ae/e2/5faee2f9daeb0fcb45fdce440d20efa8.jpg"><u><strong>existencialismo puro</strong></u></span>, esa incómoda e inevitable condición donde el ser humano se descubre a sí mismo desprovisto de un manual preestablecido. Frente a la inmensidad del cosmos, la búsqueda de un <span class="wiki-link" data-type="image" data-src="https://i1-c.pinimg.com/736x/2e/c6/ea/2ec6ea8a6c8221860fcf83e1645015de.jpg"><u><strong>propósito de vivir</strong></u></span> no es un camino que se encuentra ya trazado, sino una arquitectura íntima que se debe esculpir día con día a través de nuestras decisiones y pasiones.</p>
+                            <br>
+                            <p>El dolor, la belleza, el silencio y la creación artística son herramientas con las que intentamos dotar de orden al caos imperante de la <span class="wiki-link" data-type="gif" data-src="https://i.pinimg.com/originals/3c/54/d3/3c54d3a5519eda79991a818b75841889.gif"><u><strong>experiencia humana</strong></u></span>. No se trata de hallar un significado universal oculto bajo las piedras, sino de abrazar la libertad absoluta de existir y reclamar nuestro propio destino en este breve destello de consciencia.</p>
+                        </div>
+                    </div>
+
+                    <div class="log-entry">
+                        <button class="log-date">19 MAYO 2026</button>
+                        <div class="log-content">
+                            <p>Eventualmente nos vemos alienados por la sobresaturacion de informacion que absorbemos de cualquier fuente de conocimiento ultimamente me he venido siento muy fatigo al ser bombardeado por la sobre estimulacion de medios digitales co n algoritmos perfectamente diseñados para engancharnos durante hours a contendos que nos interesen ya sea por puro entretenimiento como para inspiracion, la sociedad esta conformada por masas en constantemente evolucion y estado de creatividad pero me suelo preguntar ¿existira algun tipo de limite en la mente humana a la hora de diseñar y crear?.</p>
+                            <br>
+                            <p>Los directores creativos tienen demasaidos bloqueos mentales como cualquier persona normal, tu desde tu cuarto podrias cambiar el mudo con tu creatividad con cosas basicas, cuando la sobresaturacion de los medios afecta nuestra vision, la mejor opcion es desconectarte e irte a convivir con la naturaleza, sin señal and sin ruido, solo tu y tu libreta, busca la <span class="wiki-link" data-type="gif" data-src="https://i.pinimg.com/originals/2c/45/a3/2c45a3e9838d4dc860a746a4c91b4664.gif"><u><strong>belleza en cosas simples</strong></u></span></p>
+                        </div>
+                    </div>
+
+                    <div class="log-entry">
+                        <button class="log-date">20 MAYO 2026 — INTROSPECCIÓN</button>
+                        <div class="log-content">
+                            <p>Resulta abrumador observar la arquitectura de la cotidianidad moderna. Nos dividimos de manera tajante en dos espectros de una misma neurosis existencial. Por un lado, veo la inmensia mayoría atrapada en la persecución incansable del dinero, no por avaricia, sino por la cruda necesidad de <strong>sobrevivir</strong>; una transacción violenta donde se cambia tiempo vital por el derecho básico a subsistir un mes más bajo un techo y con un plato en la mesa.</p>
+                            <br>
+                            <p>Por otro lado, coexiste el reverso de la moneda: aquellos que han conquistado por completo la cima de la seguridad material, pero habitan desiertos emocionales. Persiguen una idea abstracta de felicidad intentando sepultar abisales <strong>vacíos existenciales</strong> con capas de consumo estéril, hiperestimulación and posesiones. Al final del día, el dinero solo compra una tregua con el entorno, pero jamás un pacto con el silencio interno. Ambos lados corren en una cinta de correr infinita; unos huyendo de la carencia, otros de su propia vacuidad.</p>
+                        </div>
+                    </div>
+
+                    <div class="log-entry">
+                        <button class="log-date">20 MAYO 2026 — DIRECCIÓN CREATIVA</button>
+                        <div class="log-content">
+                            <p>Un verdadero <strong>rollout de un álbum</strong> no nace de un plan estratégico de marketing digital; se origina desde la decodificación de una obsesión o un sentiment abstracto muy profundo. Para actuar una campaña que trascienda, el pensamiento inicial debe centrarse en construir un universo contenedor. No se trata de lanzar canciones sueltas, sino de edificar una mitología donde la estética visual y la paleta sonora compartan exactamente el mismo ADN. Diseñar esta cohesión implica traducir frecuencias a texturas visuales (por ejemplo, la distorsión analógica convertida en grano cinematográfico o tipografías brutistas).</p>
+                            <br>
+                            <p>Fuera de los círculos masivos o comerciales de siempre, existen mentes radicales en sus métodos de inspiración. Un ejemplo impecable es el productor británico <span class="wiki-link" data-type="image" data-src="https://i1-c.pinimg.com/736x/d9/46/13/d946136de6a3a10ecdc7d04396cbbcfe.jpg"><u><strong>Burial</strong></u></span>, quien modeló su legendaria firma sónica no en estudios profesionales, sino caminando solo por los suburbios nocturnos de Londres bajo lluvias torrenciales, capturando el eco de raves lejanas, sonidos ambientales de paradas de autobús y sampleando audios distorsionados de bandas sonoras de videojuegos como <em>Metal Gear Solid</em> para evocar una nostalgia fantasmal y un anonimato absoluto.</p>
+                            <br>
+                            <p>Otro caso brillante de subversión estética es <span class="wiki-link" data-type="image" data-src="https://i1-c.pinimg.com/736x/b3/51/99/b35199f589a16c8250fa2e8a7cb1d5ab.jpg"><u><strong>Dean Blunt</strong></u></span>. Sus despliegues creativos se basan en el misterio, el troleo cultural y el desojo total de la sobreexposición. Blunt suele iniciar proyectos liberando enlaces crípticos de descarga en foros oscuros, utilizando imágenes de archivo totalmente descontextualizadas o montando exposiciones de arte que consisten en un solo recuadro en blanco, forzando al oyente a buscar la música de manera activa. Su inspiración proviene del sabotaje de las expectativas de la industria, creando una estética lo-fi, fragmented y profundamente enigmática que convierte el acto de escuchar en una experiencia de investigación subterránea.</p>
+                        </div>
+                    </div>
+
+                    <div class="log-entry">
+                        <button class="log-date">21 MAYO 2026</button>
+                        <div class="log-content">
+                            <p>
+                                <span class="wiki-link" data-type="image" data-src="https://media.pitchfork.com/photos/6a021f7e11d4b5e1620c60b2/master/w_1600%2Cc_limit/Fakemink-Terrified.jpg">
+                                    <img src="https://media.pitchfork.com/photos/6a021f7e11d4b5e1620c60b2/master/w_1600%2Cc_limit/Fakemink-Terrified.jpg" style="float: center; margin-right: 20px; margin-bottom: 20px;" width="150" height="150" alt="Fakemink - Terrified" loading="lazy">
+                                </span>
+                            </p>
+                            <p> <a href="https://www.instagram.com/fakemink/" target="_blank"><u><strong>Fakemink</strong></u></a> se ha convertido últimamente en una de mis más grandes fuentes de creatividad e inspiración. Con solo 21 años (nacido el 29 de enero de 2005 como Vincenzo Nischal Camille Bhatia), este rapero y productor originario de Londres ha logrado revolucionar el hip-hop underground con un sonido nostálgico, etéreo y utópico que evoca la época dorada de las demos perdidas y los archivos malditos de SoundCloud, pero elevado a un nivel de diseño sonoro impresionante que lo ha coronado en medios como <em>New Wave Magazine</em> como 'el nuevo príncipe de la nostalgia digital'.</p>
+                            <br>
+                            <p>Su propuesta es puramente experimental; destruye las estructuras genéricas del trap para construir atmósferas densas y texturizadas basadas en un revival del cloud rap. Uno de sus rasgos más brutales es el uso de samples impredecibles e hiperfragmentados—con marcadas influencias de artistas como Dean Blunt, Imogen Heap o Kanye West—, rescatando desde melodías oscuras y fragmentadas de bandas sonoras hasta frecuencias lo-fi aceleradas que flotan sobre líneas de bajo distorsionadas y percusiones abrasivas. De hecho, plataformas como <em>Pitchfork</em> han descrito su aclamado hit viral "Easter Pink" como una colisión perfecta donde el 'Bloghouse se encuentra con el cloud rap'.</p>
+                        </div>
+                    </div>
+
+                    <div class="log-entry">
+                        <button class="log-date">22 MAYO 2026 — INTROSPECCIÓN / DESCONEXIÓN</button>
+                        <div class="log-content">
+                            <p>Vivimos sometidos al yugo invisible del <span class="wiki-link" data-type="image" data-src="https://i1-c.pinimg.com/736x/94/e7/ad/94e7ada43f026b5b8400367208f3cf40.jpg"><u><strong>consumismo moderno</strong></u></span>, una maquinaria diseñada para mantenernos insatisfechos. Deberíamos plantearnos seriamente la necesidad de ser un poco más minimalistas y desaparecer, aunque sea de forma temporal o definitiva, de toda red social cuyo único propósito real sea incentivar e inyectar de manera constante el virus de la participación de consumo masivo.</p>
+                            <br>
+                            <p>Es alarmante ver cómo estas aplicaciones devoran meticulosamente nuestro tiempo y erosionan nuestra salud mental, forzándonos a pasar hours enteras visualizando de manera pasiva un catálogo interminable de cosas que supuestamente "queremos" o "necesitamos" para validar nuestra existencia, pero que en la cruda realidad del sistema, representan lujos y comodidades que solo <span class="wiki-link" data-type="image" data-src="https://i1-c.pinimg.com/736x/2f/c6/2c/2fc62c749188bbadb39c0059cf139c73.jpg"><u><strong>personas privilegiadas</strong></u></span> pueden permitirse tener. Nos convierten en espectadores de vidas ajenas y artificiales, sembrando una envidia sistemática y una frustración silenciosa bajo el disfraz de la aspiración.</p>
+                        </div>
+                    </div>
+                    <div class="log-entry">
+   <div class="log-entry">
+    <button class="log-date">26 MAYO 2026</button>
+    <div class="log-content">
+        <p>El <span class="wiki-link" data-type="image" data-src="https://i.pinimg.com/736x/3b/f8/b6/3bf8b6f681297472b3f33ed159c673b5.jpg"><u><strong>nirvana</strong></u></span> no es un lugar, sino un estado del alma. Una grieta en el tiempo donde lo eterno se filtra sin pedir permiso. Según ciertas tradiciones, representa la cima de la iluminación espiritual, la liberación del sufrimiento y del deseo. Pero hoy lo he comprendido de otra manera: no como una meta lejana, sino como un instante que habita en lo más recóndito de la conciencia, en ese rincón oculto que la memoria protege con el manto del olvido.</p>
+        <p>Lo experimenté cuando dos labios se encontraron sin aviso, como dos olas que chocan en el mar sin saber que regresarán. En ese instante, el tiempo —esa medida vacía que usamos para organizar la pérdida— dejó de existir dentro de mí. Mis sentidos se plegaron sobre sí mismos. Ya no había ayer ni mañana. Solo una mirada fija, inocente, tierna, profundamente amada. Y todo lo demás se disolvió: las heridas, los errores, la larga cadena de desencuentros y pequeñas muertes que llamamos experiencia.</p>
+        <p>Una llovizna fugaz nos cubría mientras nuestros cuerpos cálidos se negaban a separarse. Ciegos ante el mundo, ardiendo en esa intemperie compartida. Supe entonces que tras tantos abismos, tras el fracaso repetido y esa forma cansada de sobrevivir que confundimos con vivir, había encontrado a la persona que necesitaba para mirar el mundo con otros ojos. No para entenderlo mejor, sino para reconciliarme con él.</p>
+        <p>Ese es mi nirvana: no la ausencia de dolor, sino la presencia plena en un acto tan frágil como sincero. Un beso bajo la lluvia. Un instante que la eternidad, por una vez, no desdeñó en habitar.</p>
+    </div>
+</div>         
+<div class="log-entry">
+    <button class="log-date">27 MAYO 2026</button>
+    <div class="log-content">
+        <p>Hay álbumes que uno escucha y disfruta. Y hay otros que parecen aparecer en el momento exacto, como si hubieran estado esperando pacientemente hasta encontrar el día correcto para quedarse viviendo dentro de uno. 
+        <span class="wiki-link" data-type="image" data-src="https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da84bbe146240d2d2fe66d4b7638"><u><strong>Omakase</strong></u></span> me pegó así.</p>
+
+        <p>El título ya dice bastante. Confiar en quien prepara el plato, entregarse al recorrido sin saber exactamente qué va a llegar después. Y eso fue escuchar este álbum: dejar que Álvaro Díaz me llevara por recuerdos que ni siquiera sabía que seguían intactos. Hay algo bien especial en cómo mezcla lo sentimental con lo digital, el ruido de la ciudad con pensamientos demasiado personales para decirlos en voz alta. Como si estuviera narrando la nostalgia desde una pantalla encendida a las tres de la mañana mientras Bogotá sigue sonando allá afuera.</p>
+
+        <p><strong>“Perdiste el Emmy”</strong> me dejó atrapado desde la primera vez. Tiene esa mezcla rara entre despecho y elegancia; como mirar a alguien irse y todavía encontrar belleza en cómo desaparece. Se siente como una despedida donde ya nadie pelea, porque ambos entienden que la historia terminó hace rato aunque siga doliendo igual.</p>
+
+        <p><strong>“Pienso en ti”</strong>, con ese homenaje a 
+        <span class="wiki-link" data-type="image" data-src="https://tvazteca.brightspotcdn.com/dims4/default/1cec22a/2147483647/strip/true/crop/1278x720+0+0/resize/740x417!/format/webp/quality/100/?url=https%3A%2F%2Ftv-azteca-brightspot-production-us-west-2.s3.us-west-2.amazonaws.com%2F12%2F01%2Fb82ac3694539bac97373c48502b9%2Fmilkman.png"><u><strong>MilkMan</strong></u></span>, me pegó distinto. Tiene algo demasiado humano. Como abrir una caja vieja, encontrar recuerdos que uno juraba superados y darse cuenta de que todavía conservan temperatura. Es de esas canciones que no intentan exagerar el sentimiento; solo lo ponen ahí, intacto, y por eso duele más.</p>
+
+        <p><strong>“En la misma ciudad”</strong> me dejó pensando bastante. Esa sensación extraña de compartir calles, semáforos, esquinas y noches con alguien que ya no está en tu vida, pero sigue existiendo a pocos kilómetros de distancia. Tan cerca y tan lejos al mismo tiempo. Bogotá tiene mucho de eso; caminar por lugares que parecen guardar personas dentro de ellos.</p>
+
+        <p><strong>“Babyrecords”</strong> tiene una vibra demasiado especial. Se siente liviana pero sentimental. Como mirar fotos antiguas mientras todo cambia alrededor. Y <strong>“Spacexxx”</strong> me gustó por esa energía más espacial, futurista y emocional al mismo tiempo; Álvaro logra sonar distante y cercano en la misma canción, como si estuviera enviando mensajes desde otro planeta pero todavía hablando de algo que cualquiera ha sentido.</p>
+
+        <p><strong>“Malasnoticias”</strong> y <strong>“No podemos ser amigos”</strong> me pegaron por otro lado: la honestidad. Sin adornos. Esa parte incómoda donde uno entiende que querer a alguien no siempre alcanza para quedarse. Donde hay cariño pero no coincidencia. Donde uno quisiera volver, pero sabe que regresar no arregla nada.</p>
+
+        <p>Y <strong>“Ovelnait”</strong>… esa canción me dejó una sensación difícil de explicar. Como las madrugadas donde uno está despierto sin razón aparente, con la cabeza llena y el corazón tranquilo a medias. Todo en calma, pero por dentro siguen pasando demasiadas cosas.</p>
+
+        <p>También sentí algo bonito en ciertas armonías y detalles vocales que me recordaron un poco a 
+        <span class="wiki-link" data-type="image" data-src="https://rolloyritmo.com/wp-content/uploads/2025/11/d2efdb57-a97d-6cf0-fb22-bc1e9a5a63dd.jpg"><u><strong>Latin Mafia</strong></u></span>: esa manera de hacer que una canción se sienta íntima y enorme al mismo tiempo, como si estuvieras escuchando algo privado que accidentalmente terminó convertido en himno.</p>
+
+        <p>Para mí, <strong>Omakase</strong> se siente como nostalgia moderna: memorias en formato digital, conversaciones guardadas, ciudades nocturnas, amores que siguen apareciendo aunque uno cambie de playlist y de rutina. Un álbum que no necesita gritar para quedarse contigo. Solo entra despacio, se acomoda en algún rincón de la mente… y después de eso aparece en cualquier momento: en el bus, caminando solo, viendo luces de noche desde una ventana o pensando demasiado en alguien que tal vez ya no vuelva.</p>
+    </div>
+</div>
+<div class="log-entry">
+    <button class="log-date">30 MAYO 2026</button>
+    <div class="log-content">
+        <p>Aprender a estar solo es, en realidad, el arte de aprender a habitarse sin la necesidad de ruido externo. Es en ese silencio donde cae la máscara y surge el deseo genuino de transformarse, no por complacer al resto, sino para convertirse en una <span class="wiki-link" data-type="image" data-src="https://i.pinimg.com/1200x/b1/fa/6d/b1fa6dec3edc6d9e0ff46d70d8b9b3bd.jpg"><u><strong>mejor versión de uno mismo</strong></u></span>. La soledad deja de ser un vacío y se transforma en el taller donde se reconstruye el carácter.</p>
+        <br>
+        <p>Hoy decido levantar la mirada de las pantallas y los refugios artificiales para intentar <span class="wiki-link" data-type="image" data-src="https://i.pinimg.com/736x/fc/d1/18/fcd1184ed5258c325b231bd41d9958b0.jpg"><u><strong>conectar con el mundo real</strong></u></span>. Quiero sentir la textura tangible del día a día, escuchar con presencia y volver a enraizarme en lo cotidiano. Al final, sanar el vínculo con el exterior requiere primero hacer las paces con el espacio que ocupamos cuando no hay nadie más mirando. Usare este medio para expresar mis pensamientos y sentimientos mas honestos y profundos que habitan en lo mas oscuro de mi alma y conciencia, no lo hare a diario pero si cuando quiera escribir acerca de mi proceso.</p>
+    </div>
+</div>
+<div class="log-entry">
+    <button class="log-date">31 MAYO 2026</button>
+    <div class="log-content">
+        <h1> <center>Mis pensamientos acerca de "Selfless" de The Strokes</center></h1>
+        <p>Selfless es el segundo track del ultimo album de estudio de la banda newyorkina<span class="wiki-link" data-type="image" data-src="https://i.scdn.co/image/ab67616100005174c3b137793230f4043feb0089"><u><strong>The Strokes</strong></u></span>, el tan aclamado album <span class="wiki-link" data-type="image" data-src="https://i.scdn.co/image/ab67616d0000b273e3f1ba3de4659708c25d0f39"><u><strong>The New Abnormal</strong></u></span>. Esta canción destaca por abrir el disco con una atmósfera nostálgica y flotante, donde destaca el falsete desgarrador de Julian Casablancas y unas guitarras entrelazadas que se sienten espaciales pero increíblemente íntimas. Es un tema que transita entre la vulnerabilidad del amor y el miedo a la soledad, consolidándose rápidamente como uno de los puntos más altos y emocionales de todo el álbum.</p>
+        <br>
+        <p>A nivel lírico, la canción parece un ruego o una entrega total hacia otra persona, donde el concepto de ser <span class="wiki-link" data-type="image" data-src="https://i.pinimg.com/1200x/ee/99/b8/ee99b84f31d34dfd07c2d760bb271ef0.jpg"><u><strong>"desinteresado"</strong></u></span> se convierte en la única forma de conectar en un mundo moderno que a veces se siente desconectado y caótico. Es la banda sonora perfecta para un viaje nocturno o un momento de introspección.</p>
+        <p>Mi nota final para esta cancion es un merecidisimo<b> 9/10</b>.</p>
+    </div>
+</div>
+<div class="log-entry">
+    <button class="log-date">31 MAYO 2026</button>
+
+    <div class="log-content">
+        <p>
+            Últimamente me he descubierto completamente obsesionado con 
+            <span class="wiki-link" data-type="gif" 
+                data-src="https://i.pinimg.com/originals/80/2a/ed/802aed9acaf6f161a365f4aae66fa6b5.gif">
+                <u><strong>Nikes</strong></u>
+            </span> de 
+            <span class="wiki-link" data-type="image" 
+                data-src="https://i.pinimg.com/736x/22/c4/7b/22c47b6520a298b4bc2e3a6209df3148.jpg">
+                <u><strong>Frank Ocean</strong></u>
+            </span>. Es una experiencia que va más allá de lo auditivo; es algo que realmente me hace levitar. La producción te sumerge de golpe en una instrumental sumamente cloudy, densa y profundamente atmosférica que sirve como el portal perfecto de entrada para el universo de 
+            <span class="wiki-link" data-type="image" 
+                data-src="https://i.pinimg.com/736x/0e/28/e8/0e28e84187d25542b00ac95c151d7af6.jpg">
+                <u><strong>Blond</strong></u>
+            </span>.
+        </p>
+        <br>
+        <p>
+            En la primera mitad, esa voz ultra-pitcheada que simula la perspectiva de un Frank de la infancia genera una extraña nostalgia distorsionada. A través de ese filtro, la letra golpea con una madurez fría al desmantelar la superficialidad moderna. Es una radiografía cruda sobre cómo las personas se hunden en el 
+            <span class="wiki-link" data-type="image" 
+                data-src="https://i.pinimg.com/736x/d0/33/07/d033072c5a327e741508742c21ad8a6c.jpg">
+                <u><strong>consumismo</strong></u>
+            </span> más ciego, persiguiendo tecnología o zapatillas de última generación bajo la falsa promesa de pertenecer, intentando comprar su entrada a círculos sociales vacíos solo para sentirse incluidos.
+        </p>
+        <br>
+        <p>
+            Pero el verdadero viaje místico comienza en la segunda mitad. El beat cambia por completo y entran unas drums que suenan deliberadamente trabadas, rotas y arrastradas. Es en ese caos controlado donde emergen unos gritos pitcheados y, finalmente, esas 
+            <span class="wiki-link" data-type="gif" 
+                data-src="https://i.pinimg.com/originals/84/cc/e8/84cce8450adc57f272e07bfa368827af.gif">
+                <u><strong>voces lejanas</strong></u>
+            </span> que entran de manera envolvente, flotando en el fondo y abrazándote por completo.
+        </p>
+        <br>
+        <p>
+            Toda esta atmósfera cobra un sentido mucho más oscuro al analizar su propuesta visual. El 
+      <span onclick="window.open('https://directorslibrary.com/2016/latest/music-videos/nikes-frank-ocean/', '_blank');" style="cursor: pointer; color: inherit; text-decoration: underline;">
+    <strong>video oficial</strong>
+</span>
+            </span>, una obra de arte surrealista, provocadora y llena de destellos analógicos, no se encuentra en las plataformas convencionales; es una pieza de culto semioculta en el internet. Rastrear esa versión, o el corte original junto al rapero japonés KOHH, demuestra que este track es una obra introspectiva completamente ajena a las reglas comerciales.
+        </p>
+    </div>
+</div>
+
+<div class="log-entry">
+    <button class="log-date">31 MAYO 2026</button>
+    <div class="log-content">
+        <h2>MI RESEÑA PERSONAL ACERCA DEL ÁLBUM DEBUT "ruby" DE JENNIE</h2>
+        
+        <p><strong>Canciones favs:</strong></p>
+        <ul>
+            <li>twin</li>
+            <li>Damn right</li>
+            <li>seoul city</li>
+            <li>Love Hangover</li>
+            <li>start a war</li>
+            <li>Mantra</li>
+            <li>with the IE</li>
+        </ul>
+
+        <hr>
+
+        <p><strong>1. INTRO: JANNIE</strong></p>
+        <p>Una intro envolvente que te adentra al universo de ruby, una intro que suena como el inicio de una ópera o proyección teatral, muy calmada y personal. Me gusta mucho cómo van entrando los bajos dinámicos y esas voces angelicales acompañadas con ad-libs lejanos. La percusión suena muy casera, hasta que el beat golpea con unos kicks que resuenan con los 808s para luego entrar un synth que juguetea con el ambiente para luego finalizar con la misma instrumental calmada del inicio. Bastante bien para iniciar este proyecto, aunque sentí que faltó desenvolverse más a nivel de producción, pero al ser una intro lo dejo pasar. — 6/10</p>
+
+        <p><strong>2. LIKE JENNIE</strong></p>
+        <p>Para abrir su álbum debut, Jennie opta por una base electro-pop en la cual se desenvuelve retando a la industria, mostrando con una actitud rebelde y desafiante su individualidad, cómo puede destacar fuera de Blackpink con su estilo único, distintivo y su encanto. La canción usa un coro muy repetitivo que refuerza la narrativa de que ella, a pesar de las críticas, está en el pico más alto de su carrera y sigue siendo inalcanzable por humanos o tecnología (tal como lo refuerza el videoclip), el cual tiene un estilo visual muy futurista e industrial. — 6.5/10</p>
+
+        <p><strong>3. start a war</strong></p>
+        <p>Tuve que pausar la canción al inicio para escribir que amo el beat, es precioso. Algo muy lento y R&B con esos pads atmosféricos y cálidos que tanto me encantan. Ahora sí, continuamos. Después de escucharla por el momento es mi favorita, la letra me gustó muchísimo. Jennie habla de una relación la cual está comprometida a salvar como de lugar y a ir incluso a la guerra con cualquiera que interfiera en su relación. Recalca el deseo de protección hacia alguien que ama y también recalca que está hecha para que cualquiera la interprete como desee, ya sea proteger a tu pareja, amigos o familia. — 8/10</p>
+
+        <p><strong>4. handlebars</strong></p>
+        <p>Con una gran sorpresa que no esperaba ver, como primera colaboración Jennie interpreta esta canción junto a Dua Lipa en una canción muy pop mainstream. En cuanto a narrativa, la canción habla sobre adentrarse en el amor sabiendo aún que vas a sufrir demasiado y vas a caer en un círculo vicioso de amar y sufrir una y otra vez. Me gustó la producción, muy tranqui para una playlist de verano, para poner en algún viaje por carretera. — 6/10</p>
+
+        <p><strong>5. with the IE (way up)</strong></p>
+        <p>Me gusta mucho el flow y energía de esta canción, increíble. De fondo escucho algo que suena como algún sample pero no logro identificar de qué es precisamente. Un tema de rap que refleja nuevamente la resistencia de Jennie ante las críticas y se mantiene firme con una actitud madura e inquebrantable. Me di cuenta de que el IE del título hace referencia a la mala ortografía de Jennie haciendo alusión al "Jenny". — 6.5/10</p>
+
+        <p><strong>6. ExtraL</strong></p>
+        <p>Me sorprendió mucho la participación de Doechii, no me imaginé que estuviera presente en este proyecto. Un tema de hip-hop que es un himno para las mujeres el cual, con la energía y barras de Doechii, anima a las mujeres a confiar en sí mismas y no tener miedo a la hora de hacer cualquier proyecto personal. — 7/10</p>
+
+        <p><strong>7. Mantra</strong></p>
+        <p>Me gustan mucho los chopeos y el beat está hyper producido. Me encantan mucho esos bajos y synths muy impactantes y marcados, las drums son muy dinámicas, juguetonas y variables. Es otro himno para el empoderamiento femenino y anima a las mujeres a tener confianza en sí mismas, una canción muy positiva y enérgica, me encantó. — 8/10</p>
+
+        <p><strong>8. Love Hangover</strong></p>
+        <p>Esta canción es en colaboración con un artista que me encanta, Dominic Fike. Muy alternativa esta canción con elementos del R&B, dreampop y bedroom pop tan característicos de Dominic Fike y Kevin Abstract. Otra canción que me gustó mucho, el aporte de Dominic le da un cambio de aire a la canción y marca a esta altura del álbum un aire fresco. Narrativamente es una canción caótica que narra un amor imposible de dejar, la voz sensual y suave de Jennie se complementó muy bien con la energía extrovertida de Dominic. Explora las consecuencias caóticas de la pasión, utiliza la metáfora de "resaca" o "guayabo", como decimos en Colombia, para describir el ciclo vicioso repetitivo de rupturas y reconciliaciones para luego despertarte sin recordar nada tras una noche mágica. — 9/10</p>
+
+        <p><strong>9. Zen</strong></p>
+        <p>Me gusta ese inicio con esos cellos distorsionados para romper con unas drums industriales con un rap melódico el cual usa Jennie para mostrar su confianza con una clara percepción de sí misma. Investigando un poco más, esta canción fue el momento en el cual Jennie se dio cuenta de que este álbum "ruby" estaba tomando forma y estaba siendo algo muy serio. — 5.3/10</p>
+
+        <p><strong>10. damn right</strong></p>
+        <p>Dios mío, ¿cómo vas a poner a Kali Uchis y a Childish Gambino en la misma canción? ¿Alguien que me explique qué es esa instrumental? Dios, es tan inmersiva con esos drums que golpean tu mente con esas voces de Jennie con Kali Uchis reforzando la narrativa después del verso principal de Jennie para luego cantar juntas una especie de coro (perfección en su estado puro). Dios, esa entrada de Childish es hermosa, rompe todo el beat. Mi tema favorito. Trata sobre impresionar a alguien y hacer que se enamore de ti, mientras Childish aporta la perspectiva del hombre en la relación destacando la elegancia y destaca la personalidad de esta persona. — 9.5/10</p>
+
+        <p><strong>11. FTS</strong></p>
+        <p>Es una canción profunda que habla del momento en el cual por fin proyectas todo lo que soñaste algún día que pensabas imposible de lograr, y en ese momento que crees tener suficiente valor y fuerza mental para lograr lo que sea. Una canción muy bonita de transición para el siguiente track. — 6/10</p>
+
+        <p><strong>12. filter</strong></p>
+        <p>Es un tipo de R&B lento y muy moderno. La base tiene golpes de batería secos y un sonido envolvente que se siente espeso y nocturno creando así una atmósfera buenísima. Habla sobre las apariencias, es literalmente Jennie reflexionando sobre cómo se muestra ante el mundo a través de "filtros" (como en las redes sociales) y el misterio de lo que realmente guarda para sí misma. — 7.8/10</p>
+
+        <p><strong>13. seoul city</strong></p>
+        <p>Esta canción me gustó mucho, es un hip-hop pesado pero nostálgico que combina unos bajos profundos con melodías de fondo que suenan lejanas, imitando el eco y el movimiento de una gran ciudad de noche. Es una mirada agridulce a la ciudad Seúl, explora el contraste de estar rodeada de millones de luces y personas en la capital, pero sentir al mismo tiempo la profunda soledad que viene con la fama. — 8.2/10</p>
+
+        <p><strong>14. starlight</strong></p>
+        <p>Tiene un sonido pop etéreo y flotante. Destaca por el uso de sintetizadores suaves que brillan en el fondo, dando la sensación física de estar mirando un cielo estrellado que transmite paz y esperanza. Trata sobre encontrar un refugio, una pequeña luz guía o un momento de tranquilidad mental en medio del caos y la velocidad de su vida diaria. — 7.2/10</p>
+
+        <p><strong>15. twin</strong></p>
+        <p>Es la canción más minimalista y desnuda del disco, prácticamente se sostiene sola con una guitarra acústica suave de fondo y la voz de Jennie en primer plano, sin adornos ni distracciones. Es una conversación íntima con ella misma. Habla de la dualidad de su vida: el choque entre la superestrella que todos conocen y la persona real que se mira al espejo cuando se apagan las luces. — 10/10 mi favorita</p>
+
+        <hr>
+
+        <p><strong>Mi conclusión final :p</strong></p>
+        <p>El álbum ruby no es solo un gran álbum de pop; es el manifiesto de Jennie, inspirado sutilmente en las etapas de la vida de Shakespeare (tuve que investigar esto porque me pareció muy interesante). El disco fluye de manera impecable desde el egocentrismo magnético y empoderado de sus primeros tracks hasta la vulnerabilidad cruda e introspectiva de su recta final. Al equilibrar de forma tan orgánica las colaboraciones internacionales de primer nivel con sus canciones en solitario, Jennie demuestra que no necesita encasillarse en una fórmula. Este álbum es un debut cohesivo, valiente y maduro que consolida su estatus como una artista global completa. Mi calificación final para este proyecto es un rotundo 7.6/10</p>
+    </div>
+</div>
+ <div class="log-entry">
+    <button class="log-date">10 JUNIO 2026</button>
+    <div class="log-content">
+        <p> el amor no se puede forzar </p>
+        <p>me senti vivo el dia de hoy, me senti amado y correspondido, quedare eternamente agradecido por el esfuerzo que hiciste y que lastima que te hayas visto forzada a realizar algo que no debiste hacerlo por fallar a tus principios</p>
+        <p> fue una noche magica en la cual por unas cuantas horas me senti amado y por fin pensar que mi mala racha habia acabado pero en ese momento fui un iluso y no sabia para nada lo que se vendria en los siguientes dias, me dijiste que no me culpara por nada y que la culpa recaia en ti al forzarte algo que no debiste hacer al no sentirte correpondida como pensaste que debias de hacerlo conmigo</p>
+        <p> siendo honesto y mostrando mi mas profundo arrepentimiento y dolor quiero decirte que si lees esto algun dia, esta fecha en concreto quiero que sepas que fui muy especial para mi y valoro mucho tu esfuerzo y que lastima que no te hayas sentido de la misma manera</p>
+        <p> fui arraigado a mis principios como ser humano y como persona individual, me falle al recaer en las mismas trampas mentales cegadas por mi gran amor, debi ser mas lent y tomarme las cosas con calma, no debi de abusar de tu confianza cuando lo que mas querias era tener tu libertad y estar solo, cosa que me aclaraste desde el dia en el que te conoci</p>
+        <p>a pesar de todo, este dia me lo guardare como un recuerdo muy bonito hasta el dia en el que mi cuerpo quede inmovil y mi corazon deje de latir por ti.</p>
+    </div>
+</div>
+  <div class="log-entry">
+    <button class="log-date">13 JUNIO 2026</button>
+    <div class="log-content">
+        <p> La depresión no siempre llega haciendo ruido. A veces no rompe puertas ni anuncia su llegada. A veces se sienta silenciosamente en un rincón de tu vida y, poco a poco, empieza a apagar las luces de las habitaciones que más te gustaban.
+
+Lo más difícil de explicarle a alguien que nunca la ha vivido es que no se trata únicamente de estar triste. La tristeza tiene una razón, un origen, una dirección. La depresión, en cambio, muchas veces se siente como una niebla. Una niebla tan espesa que incluso las cosas que antes amabas comienzan a perder color. Levantarse de la cama se convierte en una batalla. Contestar un mensaje parece una tarea imposible. Los sueños que antes te mantenían despierto por la emoción ahora apenas tienen fuerza para sacarte de las sábanas.
+
+Y entonces llega la culpa.
+
+La culpa por no ser productivo. La culpa por no disfrutar los momentos felices. La culpa por sentir que estás desperdiciando tu tiempo mientras el mundo sigue avanzando sin ti. Ves a otras personas cumplir metas, construir relaciones, perseguir proyectos, y te preguntas por qué algo que parece tan sencillo para los demás se siente como escalar una montaña con piedras atadas a los pies.
+
+Durante mucho tiempo pensé que tenía que luchar contra mí mismo. Creí que la solución era obligarme a ser fuerte, fingir que nada me afectaba, actuar como si todo estuviera bien. Pero la depresión tiene una manera curiosa de responder a eso: cuanto más la ignoras, más espacio ocupa.
+
+Aprendí que sanar no era una cuestión de ganar una guerra, sino de aprender a convivir conmigo. De entender que algunos días no iba a rendir al cien por ciento y que eso no me convertía en un fracaso. Aprendí a escucharme en lugar de juzgarme. A reconocer cuándo necesitaba descansar, cuándo necesitaba hablar y cuándo simplemente necesitaba sobrevivir al día sin exigirme más de lo que podía dar.
+
+No hubo un momento mágico en el que desperté y todo desapareció. La recuperación rara vez funciona así. Fue más parecida al amanecer. Al principio no notas el cambio. Todo sigue oscuro. Pero poco a poco entra una pequeña línea de luz por la ventana. Luego otra. Y otra más. Hasta que un día te das cuenta de que puedes volver a ver el paisaje.
+
+Comencé a encontrar refugio en las cosas pequeñas. Una canción que entendía exactamente lo que sentía. Una caminata sin destino. Una conversación honesta. El sonido de la lluvia. Una fotografía. Un recuerdo. Descubrí que la felicidad no siempre llega en forma de grandes acontecimientos; muchas veces se esconde en momentos tan simples que, cuando estás deprimido, pasan desapercibidos.
+
+Y aunque hoy puedo decir que soy más feliz, también puedo decir que sigo siendo una persona profundamente nostálgica.
+
+Antes veía mi nostalgia como una maldición. Sentía que estaba atrapado entre recuerdos que ya no podían volver y personas que ya no estaban. Extrañaba versiones de mi vida que habían quedado atrás. Lugares. Olores. Canciones. Conversaciones. Atardeceres que nunca volverían a repetirse exactamente igual.
+
+Pero con el tiempo entendí algo.
+
+La nostalgia no siempre significa que quieras regresar. A veces simplemente significa que aquello que viviste fue real. Que amaste de verdad. Que te importó. Que hubo momentos tan hermosos que dejaron una huella permanente en ti.
+
+Hoy todavía extraño muchas cosas. Todavía hay canciones que me transportan a otras etapas de mi vida. Todavía hay noches en las que pienso en personas que ya no están a mi lado. Todavía me conmueve recordar ciertos momentos. Pero ya no vivo atrapado en ellos.
+
+Porque aprendí que recordar no es lo mismo que quedarse.
+
+La depresión me enseñó cuánto puede doler existir. Pero también me enseñó algo igual de importante: la capacidad humana para reconstruirse. Descubrí que incluso después de tocar fondo es posible volver a encontrar sentido. Que el corazón puede romperse y seguir amando. Que la mente puede oscurecerse y volver a encontrar luz.
+
+Y aunque aún cargo cicatrices, ya no las veo como señales de derrota. Las veo como evidencia de que seguí adelante.
+
+Porque al final, la felicidad no llegó cuando dejé de ser nostálgico.
+
+Llegó cuando entendí que podía caminar hacia el futuro sin dejar de honrar mi pasado.
+
+Y desde entonces, cada día intento hacer exactamente eso.</p>
+    </div>
+</div>
+    </div>
+<div class="log-entry">
+    <button class="log-date">12 JULIO 2026</button>
+    <div class="log-content">
+        <p> <span class="wiki-link" data-type="image" 
+                data-src="https://i.pinimg.com/736x/1f/cf/63/1fcf63f9904e20dc6fed1dd860344c35.jpg">
+                <u><strong>Jamiroquai</strong></u>
+            </span> llegó a mi vida en un momento en el que no sabía que necesitaba escuchar algo así.
+
+Durante años pensé que la nostalgia era una especie de condena. Vivía mirando hacia atrás, recorriendo una y otra vez lugares que ya no existían, conversaciones que habían terminado y versiones de mí mismo que el tiempo había dejado atrás. Había días en los que sentía que estaba más presente en mis recuerdos que en mi propia realidad.
+
+Entonces aparecieron aquellas canciones.
+
+Y fue extraño.
+
+Porque mientras muchos escuchaban funk, baile y energía, yo escuchaba algo diferente. Escuchaba humanidad.
+
+Escuchaba a alguien recordándome que la vida también ocurre aquí, en este preciso instante.
+
+Hay algo en la música de Jamiroquai que se parece mucho a la luz de una tarde de junio. No una luz intensa que obliga a cerrar los ojos, sino una luz suave que entra por la ventana y descansa sobre los muebles viejos de una casa. Una luz que no intenta llamar la atención y que, sin embargo, transforma todo lo que toca.
+
+Quizás por eso sus canciones me producen una sensación tan difícil de describir. Son alegres, pero nunca superficiales. Son luminosas, pero entienden la oscuridad. Son optimistas, pero jamás ingenuas.
+
+Parecen comprender que existir es una experiencia llena de contradicciones.
+
+Porque la vida es exactamente eso.
+
+Es bailar mientras llevamos heridas que nadie puede ver.
+
+Es sonreír mientras extrañamos algo.
+
+Es caminar hacia adelante sin dejar de mirar de vez en cuando el camino que dejamos atrás.
+
+Cuando escucho Jamiroquai siento que alguien tomó todas esas contradicciones humanas y las convirtió en música.
+
+Pienso en los días que ya pasaron. En personas que alguna vez ocuparon un lugar importante en mi historia. En tardes que parecían eternas y que terminaron desapareciendo sin hacer ruido. Pienso en la rapidez con la que cambian las cosas. En cómo una etapa completa de nuestra vida puede convertirse en un simple recuerdo.
+
+Y, sin embargo, lejos de entristecerme, sus canciones me enseñan algo diferente.
+
+Me enseñan que la belleza de la vida existe precisamente porque nada permanece.
+
+Que los veranos terminan.
+
+Que las personas cambian.
+
+Que los caminos se separan.
+
+Que nosotros también nos transformamos.
+
+Y que tal vez ahí reside el verdadero valor de cada instante.
+
+Durante mucho tiempo quise aferrarme a todo. A los momentos felices. A las personas que amaba. A las versiones del pasado que me hacían sentir seguro. Pero el tiempo tiene una forma inevitable de seguir avanzando, incluso cuando nosotros nos negamos a hacerlo.
+
+Jamiroquai me ayudó a entender que vivir no consiste en retener.
+
+Consiste en experimentar.
+
+Consiste en abrir las manos y permitir que los momentos pasen por ellas sin intentar encerrarlos para siempre.
+
+Por eso cada vez que escucho sus canciones siento algo parecido a la paz.
+
+No porque desaparezcan mis recuerdos.
+
+No porque deje de ser nostálgico.
+
+Sino porque me recuerdan que ambas cosas pueden coexistir.
+
+Puedo extrañar el pasado y seguir construyendo el futuro.
+
+Puedo recordar y continuar.
+
+Puedo sentir melancolía sin dejar de ser feliz.
+
+Y quizá esa sea la enseñanza más valiosa que Jamiroquai me ha dejado.
+
+Que la felicidad no es la ausencia de nostalgia.
+
+Es aprender a convivir con ella.
+
+Es mirar hacia atrás con cariño, hacia adelante con esperanza y hacia el presente con gratitud.
+
+Porque al final, cuando la música termina y el silencio vuelve a ocupar la habitación, lo único que realmente nos pertenece son los momentos que vivimos con el corazón completamente abierto.
+
+Y si algo he aprendido escuchando a Jamiroquai, es que la vida, por breve e impredecible que sea, merece ser vivida exactamente de esa manera.
+ </p>
+    </div>
+</div>
+
+<div class="log-entry">
+    <button class="log-date">12 JULIO 2026</button>
+    <div class="log-content">
+        <p>Si hay una canción en la discografía de  <span class="wiki-link" data-type="gif" 
+                data-src="https://i.pinimg.com/1200x/2e/2b/43/2e2b43bb88aa3b41d8a172fac8669615.jpg">
+                <u><strong>joji</strong></u>
+            </span>
+            
+            donde deja de sonar como alguien resignado y empieza a sonar como alguien desesperado, esa es Run.
+
+Más que una canción sobre una ruptura,Run es una canción sobre el momento exacto en que entiendes que el amor ya no puede salvarse. No habla de la tristeza inicial de perder a alguien; habla de la etapa posterior, cuando sigues aferrándote a algo que ya terminó y empiezas a preguntarte cuánto más puedes soportarlo. 
+Lo interesante es que Joji no se presenta como una víctima. En lugar de culpar a la otra persona, parece atrapado en una lucha consigo mismo. A lo largo de la canción hay una sensación constante de persecución: persigue recuerdos, persigue respuestas, persigue una versión del amor que ya no existe. Pero cuanto más corre, más lejos parece estar de aquello que busca.
+Musicalmente, también representa una evolución importante para Joji. Hasta ese momento era conocido principalmente por sus baladas lentas y atmosféricas. En *Run* introduce elementos de rock alternativo y una intensidad vocal que rara vez había mostrado antes. Su voz suena más rota, más exigida, como si estuviera intentando gritar algo que lleva demasiado tiempo guardando. El famoso solo de guitarra cerca del final no está ahí para lucirse técnicamente; funciona como una explosión emocional que las palabras ya no pueden expresar.
+Lo que hace especial a *Run* es que captura una sensación muy humana: la de saber que debes irte, pero no querer hacerlo.
+Todos hemos tenido momentos donde entendemos racionalmente que una persona ya no nos ama igual, que la relación cambió o que el vínculo está roto. Sin embargo, emocionalmente seguimos esperando una señal, una conversación o un milagro que devuelva todo a como era antes. *Run* vive exactamente en ese espacio entre la aceptación y la negación.
+Desde una perspectiva más personal, la canción también puede interpretarse como el miedo a quedarse atrás. Joji observa cómo la otra persona parece avanzar mientras él sigue estancado en los mismos sentimientos. No corre hacia alguien; corre para escapar de sí mismo, de sus recuerdos y de la idea de que ya no ocupa el lugar que antes tenía en la vida de esa persona.
+Por eso muchos fans consideran Run una de las mejores canciones de <p>Si hay una canción en la discografía de  <span class="wiki-link" data-type="gif" 
+                data-src="https://i.pinimg.com/736x/76/d5/45/76d545a1eb6a2e99f49356fae649e137.jpg">
+                <u><strong>Nectar.</strong></u>
+            </span> No porque sea la más triste, sino porque es una de las más honestas. No romantiza el dolor. No promete que todo saldrá bien. Simplemente retrata ese instante incómodo en el que descubres que el amor, por sí solo, no siempre es suficiente.
+Y quizá la frase que resume toda la canción no es una declaración de amor, sino una rendición: a veces seguir corriendo detrás de alguien duele más que dejarlo ir.
+Esa es la tragedia de Run: Joji sabe que debe marcharse, pero una parte de él todavía espera encontrar algo al final del camino.
+ </p>
+
+
+    </div>
+                </div>
+            </main>
+        </div>
+       
+
+
+
+    <script>
+        const audio = document.getElementById('localAudio');
+        const volumeSlider = document.getElementById('volumeSlider');
+        const muteToggle = document.getElementById('muteToggle');
+        
+        const btnPlayPause = document.getElementById('btnPlayPause');
+        const btnNext = document.getElementById('btnNext');
+        const btnPrev = document.getElementById('btnPrev');
+        const playerTrackInfo = document.getElementById('playerTrackInfo');
+        const vinylDisc = document.getElementById('vinylDisc');
+        const vinylCenter = document.getElementById('vinylCenter');
+        const previewContainer = document.getElementById('media-preview-container');
+        const mediaLightbox = document.getElementById('media-lightbox');
+        const lightboxContent = document.getElementById('lightboxContent');
+
+        // EVENTO: Ampliar cover del disco
+        vinylDisc.addEventListener('click', () => {
+            const bg = getComputedStyle(vinylCenter).backgroundImage;
+            if (bg && bg !== 'none') {
+                const url = bg.replace(/url\(['"]?(.*?)['"]?\)/, '$1');
+                if (url) {
+                    lightboxContent.innerHTML = `<img src="${url}" style="max-width: 90vw; max-height: 90vh;">`;
+                    mediaLightbox.style.display = 'flex';
+                }
+            }
+        });
+
+        audio.volume = 0.40;
+        let indiceActual = -1; 
+
+        const listaCanciones = [
+            { archivo: "AUDIO/ambient.m4a", texto: "#3 - Aphex Twin", portada: "https://www.normanrecords.com/artwork/medium/180/203930.jpg" },
+            { archivo: "AUDIO/ambient2.opus", texto: "Village of Dali - Final Fantasy IX", portada: "https://i.scdn.co/image/ab67616d0000b27373fdbf8281a526452f942410" },
+            { archivo: "AUDIO/ambient3.m4a", texto: "BÓ - Ralphie Choo", portada: "https://crazyminds.es/wp-content/uploads/Ralphie-Choo-Supernova-scaled.webp" },
+            { archivo: "AUDIO/ambient4.MP3", texto: "#2 - takoro", portada: "MULTIMEDIA/2.jpeg" },
+            { archivo: "AUDIO/ambient5.m4a", texto: "Forest - Akira Yamaoka", portada: "https://m.media-amazon.com/images/I/716TcK+znIL._UF1000,1000_QL80_.jpg"},
+            { archivo: "AUDIO/ambient6.opus", texto: "URL湖 - Webinar", portada: "https://i.scdn.co/image/ab67616d0000b2733ec3a708325047d2f6e41357" },
+            { archivo: "AUDIO/ambient7.m4a", texto: "Online Office -  猫 シ Corp", portada: "https://i.scdn.co/image/ab67616d00001e024880719165366e4a9a041692" },
+            { archivo: "AUDIO/ambient8.m4a", texto: "Bonus fruit || - DreamCorp", portada: "https://i.scdn.co/image/ab67616d0000b2733ec3a708325047d2f6e41357" },
+            { archivo: "AUDIO/ambient9.m4a", texto: "Xtal - Aphex Twin", portada: "https://cdn-images.dzcdn.net/images/cover/61597432632bf90678b7132db0451f45/0x1900-000000-80-0-0.jpg" }
+        ];
+
+        function cargarCancion(index) {
+            indiceActual = index;
+            const cancion = listaCanciones[indiceActual];
+            audio.src = cancion.archivo;
+            playerTrackInfo.innerText = cancion.texto;
+
+            if (cancion.portada && cancion.portada.trim() !== "") {
+                vinylCenter.style.backgroundImage = `url('${cancion.portada}')`;
+                vinylCenter.classList.add('has-cover');
+            } else {
+                vinylCenter.style.backgroundImage = 'none';
+                vinylCenter.classList.remove('has-cover');
+            }
+        }
+
+        function playAudio() {
+            audio.play().then(() => {
+                vinylDisc.classList.add('spinning');
+                btnPlayPause.innerText = "⏸";
+            }).catch(err => {
+                console.error("Interacción requerida:", err);
+                reproducirRandom(); 
+            });
+        }
+
+        function pausaAudio() {
+            audio.pause();
+            vinylDisc.classList.remove('spinning');
+            btnPlayPause.innerText = "▶";
+        }
+
+        function togglePlayPause() {
+            if (audio.paused) {
+                if (indiceActual === -1) reproducirRandom(); else playAudio();
+            } else {
+                pausaAudio();
+            }
+        }
+
+        function reproducirRandom() {
+            if (listaCanciones.length <= 1) {
+                cargarCancion(0);
+            } else {
+                let nuevoIndice;
+                do {
+                    nuevoIndice = Math.floor(Math.random() * listaCanciones.length);
+                } while (nuevoIndice === indiceActual);
+                
+                cargarCancion(nuevoIndice);
+            }
+            playAudio();
+        }
+
+        function reproducirAnterior() {
+            if (indiceActual > 0) {
+                cargarCancion(indiceActual - 1);
+            } else {
+                cargarCancion(listaCanciones.length - 1);
+            }
+            playAudio();
+        }
+
+        btnPlayPause.addEventListener('click', togglePlayPause);
+        btnNext.addEventListener('click', reproducirRandom);
+        btnPrev.addEventListener('click', reproducirAnterior);
+        audio.addEventListener('ended', reproducirRandom);
+
+        volumeSlider.addEventListener('input', (e) => {
+            audio.volume = e.target.value;
+            if(audio.muted && e.target.value > 0) {
+                audio.muted = false;
+                muteToggle.innerText = "Mutear";
+                muteToggle.classList.remove('active');
+            }
+        });
+
+        muteToggle.addEventListener('click', () => {
+            audio.muted = !audio.muted;
+            if (audio.muted) {
+                muteToggle.innerText = "Desmutear";
+                muteToggle.classList.add('active');
+            } else {
+                muteToggle.innerText = "Mutear";
+                muteToggle.classList.remove('active');
+            }
+        });
+
+        const menuToggle = document.getElementById('menuToggle');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+        function openSidebar() {
+            sidebar.classList.add('open');
+            sidebarOverlay.classList.add('show');
+        }
+
+        function closeSidebar() {
+            sidebar.classList.remove('open');
+            sidebarOverlay.classList.remove('show');
+        }
+
+        menuToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (sidebar.classList.contains('open')) closeSidebar(); else openSidebar();
+        });
+
+        sidebarOverlay.addEventListener('click', closeSidebar);
+
+        const themeToggle = document.getElementById('themeToggle');
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            themeToggle.classList.toggle('active');
+        });
+
+        const layoutSizeToggle = document.getElementById('layoutSizeToggle');
+        layoutSizeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('large-interface');
+            layoutSizeToggle.classList.toggle('active');
+            layoutSizeToggle.innerText = document.body.classList.contains('large-interface') ? "Ventana Normal" : "Agrandar Ventana";
+        });
+
+        const fontSizeToggle = document.getElementById('fontSizeToggle');
+        fontSizeToggle.addEventListener('click', () => {
+            const currentSize = getComputedStyle(document.documentElement).getPropertyValue('--font-size-base').trim();
+            if(currentSize === '1.1rem' || currentSize === '1.25rem') {
+                document.documentElement.style.setProperty('--font-size-base', '1.35rem');
+                fontSizeToggle.innerText = "Texto Normal";
+                fontSizeToggle.classList.add('active');
+            } else {
+                document.documentElement.style.setProperty('--font-size-base', document.body.classList.contains('large-interface') ? '1.25rem' : '1.1rem');
+                fontSizeToggle.innerText = "Texto Grande";
+                fontSizeToggle.classList.remove('active');
+            }
+        });
+
+        const motionToggle = document.getElementById('motionToggle');
+        motionToggle.addEventListener('click', () => {
+            document.body.classList.toggle('reduced-motion');
+            motionToggle.classList.toggle('active');
+            motionToggle.innerText = document.body.classList.contains('reduced-motion') ? "Animaciones: OFF" : "Reducir Animaciones";
+        });
+
+        function updateClock() {
+            const now = new Date();
+            const dateOptions = { day: 'numeric', month: 'short', year: 'numeric' };
+            const dateString = now.toLocaleDateString('es-ES', dateOptions).toUpperCase();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            document.getElementById('live-clock').innerText = `${dateString} — ${hours}:${minutes}:${seconds}`;
+        }
+        updateClock();
+        setInterval(updateClock, 1000);
+
+        document.querySelectorAll('.log-date').forEach(button => {
+            button.addEventListener('click', () => {
+                button.parentElement.classList.toggle('active');
+            });
+        });
+
+        function initMediaEvents() {
+            document.querySelectorAll('.wiki-link').forEach(link => {
+                const src = link.getAttribute('data-src');
+                const type = link.getAttribute('data-type') || 'image';
+
+                link.addEventListener('mouseenter', (e) => {
+                    if (!src) return;
+                    previewContainer.innerHTML = '';
+                    if (type === 'video' || src.endsWith('.mp4')) {
+                        const videoEl = document.createElement('video');
+                        videoEl.src = src; videoEl.autoplay = true; videoEl.loop = true; videoEl.muted = true;
+                        previewContainer.appendChild(videoEl);
+                    } else {
+                        const imgEl = document.createElement('img');
+                        imgEl.src = src;
+                        previewContainer.appendChild(imgEl);
+                    }
+                    previewContainer.style.display = 'block';
+                });
+
+                link.addEventListener('mousemove', (e) => {
+                    previewContainer.style.left = (e.clientX + 15) + 'px';
+                    previewContainer.style.top = (e.clientY + 15) + 'px';
+                });
+
+                link.addEventListener('mouseleave', () => {
+                    previewContainer.style.display = 'none';
+                    previewContainer.innerHTML = '';
+                });
+
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if (!src) return;
+                    lightboxContent.innerHTML = '';
+                    previewContainer.style.display = 'none'; 
+
+                    if (type === 'video' || src.endsWith('.mp4')) {
+                        const videoEl = document.createElement('video');
+                        videoEl.src = src; videoEl.controls = true; videoEl.autoplay = true; videoEl.loop = true;
+                        lightboxContent.appendChild(videoEl);
+                    } else {
+                        const imgEl = document.createElement('img');
+                        imgEl.src = src;
+                        lightboxContent.appendChild(imgEl);
+                    }
+                    mediaLightbox.style.display = 'flex';
+                });
+            });
+        }
+        initMediaEvents();
+
+        document.getElementById('macAppIcon').addEventListener('click', () => {
+            lightboxContent.innerHTML = '';
+            const imgEl = document.createElement('img');
+            imgEl.src = 'MULTIMEDIA/icon.gif';
+            lightboxContent.appendChild(imgEl);
+            mediaLightbox.style.display = 'flex';
+        });
+
+        mediaLightbox.addEventListener('click', () => {
+            mediaLightbox.style.display = 'none';
+        });
+
+        const macWindow = document.getElementById('macWindow');
+        const reopenBtn = document.getElementById('reopen-btn');
+
+        document.getElementById('macCloseBtn').addEventListener('click', () => {
+            macWindow.classList.add('closed');
+            reopenBtn.innerText = "[ABRIR ARCHIVO]";
+            reopenBtn.style.display = 'block';
+        });
+
+        document.getElementById('macMinimizeBtn').addEventListener('click', () => {
+            macWindow.classList.add('minimized');
+            setTimeout(() => {
+                if (macWindow.classList.contains('minimized')) {
+                    macWindow.style.display = 'none';
+                    reopenBtn.innerText = "[RESTAURAR VENTANA]";
+                    reopenBtn.style.display = 'block';
+                }
+            }, 400);
+        });
+
+        reopenBtn.addEventListener('click', () => {
+            if (macWindow.classList.contains('closed')) {
+                macWindow.classList.remove('closed');
+            } else if (macWindow.classList.contains('minimized')) {
+                macWindow.style.display = 'block';
+                void macWindow.offsetHeight; 
+                macWindow.classList.remove('minimized');
+            }
+            reopenBtn.style.display = 'none';
+        });
+        
+        const btnFullscreen = document.getElementById('btnFullscreen');
+        const maxBtn = document.getElementById('macMaximizeBtn');
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.getElementById('macWindow').requestFullscreen().catch(err => {
+                    console.warn(`Fullscreen bloqueado: ${err.message}`);
+                });
+            } else {
+                document.exitFullscreen();
+            }
+        }
+        btnFullscreen.addEventListener('click', toggleFullscreen);
+        maxBtn.addEventListener('click', toggleFullscreen);
+    </script>
+</body>
+</html>
